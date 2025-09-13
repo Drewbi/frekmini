@@ -1,0 +1,2 @@
+# FrekMini Source Code
+This is the source for running on the CH32V003 microcontroller from WCH. They have provided example projects to run in their clone of VS Code called [MounRiver Studio](https://www.mounriver.com/)
