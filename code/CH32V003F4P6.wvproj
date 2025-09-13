@@ -20,7 +20,7 @@
 				"name": "*.wvproj"
 			}
 		],
-		"projectName": "CH32V003F4P6",
+		"projectName": "FrekMini",
 		"architecture": "RISC-V",
 		"projectType": "c"
 	},

@@ -5,7 +5,7 @@
 			"type": "mrs-debugger",
 			"request": "launch",
 			"name": "CH32V003F4P6",
-			"cwd": "c:\\Users\\Drew\\mounriver-studio-projects\\CH32V003F4P6",
+			"cwd": "C:\\Users\\Drew\\Dev\\frekmini\\code",
 			"openOCDCfg": {
 				"useLocalOpenOCD": true,
 				"executable": "c:/Users/Drew/Dev/MounRiver/MounRiver_Studio2/resources/app/resources/win32/components/WCH/OpenOCD/OpenOCD/bin/openocd.exe",
@@ -39,8 +39,8 @@
 					"additionalCommands": []
 				},
 				"loadedFiles": {
-					"executableFile": "c:\\Users\\Drew\\mounriver-studio-projects\\CH32V003F4P6\\obj\\CH32V003F4P6.elf",
-					"symbolFile": "c:\\Users\\Drew\\mounriver-studio-projects\\CH32V003F4P6\\obj\\CH32V003F4P6.elf",
+					"executableFile": "C:\\Users\\Drew\\Dev\\frekmini\\code\\obj\\CH32V003F4P6.elf",
+					"symbolFile": "C:\\Users\\Drew\\Dev\\frekmini\\code\\obj\\CH32V003F4P6.elf",
 					"executableFileOffset": 0,
 					"symbolFileOffset": 0
 				},
