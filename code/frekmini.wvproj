@@ -591,7 +591,7 @@
 	"flashConfig": {
 		"mcutype": "CH32V003",
 		"address": "0x08000000",
-		"target_path": "obj/CH32V003F4P6.hex",
+		"target_path": "obj/frekmini.hex",
 		"clkSpeed": "High",
 		"debug_interface_mode": "",
 		"erase": true,
@@ -670,7 +670,7 @@
 			"showDebugOutputTimestamps": true
 		},
 		"reserve": {
-			"PROGRAM_NAME": "obj\\CH32V003F4P6.elf",
+			"PROGRAM_NAME": "obj/CH32V003F4P6.elf",
 			"PROJECT_ATTR": "CH32V003F4P6",
 			"PROJECT_BUILD_CONFIG_AUTO_ATTR": true,
 			"PROJECT_BUILD_CONFIG_ID_ATTR": "",
