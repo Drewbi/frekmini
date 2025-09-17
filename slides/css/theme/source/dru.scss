@@ -42,7 +42,7 @@ $mainColor: #fff;
 $headingColor: #b0efff;
 
 $mainFontSize: 42px;
-$mainFont: 'Open Sans', Helvetica, sans-serif;
+$mainFont: 'Cascadia Code', Helvetica, sans-serif;
 $headingFont: 'Cascadia Code', Helvetica, sans-serif;
 $codeFont: 'Cascadia Code', monospace;
 $headingTextShadow: none;
@@ -69,4 +69,12 @@ $heading4Size: 1.0em;
 // Overrides
 .reveal .r-frame {
 	border-radius: 5px;
+}
+
+.r-hstack, .r-vstack {
+    gap: 15px;
+}
+
+img:not(.no-border) {
+    border: solid 10px white;
 }

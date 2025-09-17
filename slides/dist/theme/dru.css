@@ -32,7 +32,7 @@ section.has-light-background, section.has-light-background h1, section.has-light
  *********************************************/
 :root {
   --r-background-color: #282828;
-  --r-main-font: Open Sans, Helvetica, sans-serif;
+  --r-main-font: Cascadia Code, Helvetica, sans-serif;
   --r-main-font-size: 42px;
   --r-main-color: #fff;
   --r-block-margin: 20px;
@@ -378,4 +378,12 @@ section.has-light-background, section.has-light-background h1, section.has-light
 }
 .reveal .r-frame {
   border-radius: 5px;
+}
+
+.r-hstack, .r-vstack {
+  gap: 15px;
+}
+
+img:not(.no-border) {
+  border: solid 10px white;
 }
