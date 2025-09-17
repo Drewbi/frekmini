@@ -2,16 +2,83 @@
 
 #define NPIXELS 16
 
-volatile uint8_t framebuffer[NPIXELS] = {0};
+volatile u8 framebuffer[NPIXELS] = {0};
 
-volatile uint8_t pwm_step = 0;
+volatile u8 pwm_step = 0;
 
-volatile uint16_t TxWord = 0;
+volatile u16 tx_word = 0;
 
-void shift_spi_init(void);
-void pwm_timer_init(void);
+static u16 rng_state = 24635U;
 
-void shift_spi_init() {
+void spi_init();
+void pwm_timer_init();
+void adc_init();
+void choose_pixels();
+void update_framebuffer();
+
+int main(void)
+{
+    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
+    SystemCoreClockUpdate();
+    Delay_Init();
+
+    spi_init();
+    pwm_timer_init();
+    adc_init();
+
+    choose_pixels();
+
+    while (1) {
+        update_framebuffer();
+        Delay_Ms(5);
+    }
+}
+
+void adc_init() {
+    GPIO_InitTypeDef GPIO_InitStructure = {0};
+    ADC_InitTypeDef  ADC_InitStructure  = {0};
+
+    // Enable GPIOC and ADC1 clocks
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_GPIOA | RCC_APB2Periph_ADC1, ENABLE);
+    RCC_ADCCLKConfig(RCC_PCLK2_Div8); // ADC clock = PCLK2/8
+
+    // Configure PC4 (ADC channel 2) as analog input
+    GPIO_InitStructure.GPIO_Pin  = GPIO_Pin_4;
+    GPIO_InitStructure.GPIO_Mode = GPIO_Mode_AIN;
+    GPIO_Init(GPIOA, &GPIO_InitStructure);
+
+    // ADC configuration
+    ADC_DeInit(ADC1);
+    ADC_InitStructure.ADC_Mode = ADC_Mode_Independent;
+    ADC_InitStructure.ADC_ScanConvMode = DISABLE;
+    ADC_InitStructure.ADC_ContinuousConvMode = DISABLE;
+    ADC_InitStructure.ADC_ExternalTrigConv = ADC_ExternalTrigConv_None;
+    ADC_InitStructure.ADC_DataAlign = ADC_DataAlign_Right;
+    ADC_InitStructure.ADC_NbrOfChannel = 1;
+    ADC_Init(ADC1, &ADC_InitStructure);
+
+    // Enable ADC
+    ADC_Cmd(ADC1, ENABLE);
+
+    // Calibration
+    ADC_ResetCalibration(ADC1);
+    while(ADC_GetResetCalibrationStatus(ADC1));
+    ADC_StartCalibration(ADC1);
+    while(ADC_GetCalibrationStatus(ADC1));
+}
+
+uint16_t adc_read(uint8_t channel)
+{
+    ADC_RegularChannelConfig(ADC1, channel, 1, ADC_SampleTime_30Cycles);
+
+    ADC_SoftwareStartConvCmd(ADC1, ENABLE);
+
+    while(!ADC_GetFlagStatus(ADC1, ADC_FLAG_EOC));
+
+    return ADC_GetConversionValue(ADC1);
+}
+
+void spi_init() {
     GPIO_InitTypeDef GPIO_InitStructure = {0};
     SPI_InitTypeDef  SPI_InitStructure = {0};
     NVIC_InitTypeDef NVIC_InitStructure = {0};
@@ -69,6 +136,28 @@ void shift_spi_init() {
     GPIO_WriteBit(GPIOC, GPIO_Pin_4, Bit_RESET);
 }
 
+void timer2_init(void)
+{
+    TIM_TimeBaseInitTypeDef  TIM_TimeBaseInitStructure = {0};
+
+    RCC_APB2PeriphClockCmd(RCC_APB2Periph_TIM1, ENABLE);
+
+    // 48 MHz / 48 = 1 MHz -> 1 ?s per tick
+    TIM_TimeBaseInitStructure.TIM_Period        = 0xFFFF;
+    TIM_TimeBaseInitStructure.TIM_Prescaler     = 48 - 1;
+    TIM_TimeBaseInitStructure.TIM_ClockDivision = TIM_CKD_DIV1;
+    TIM_TimeBaseInitStructure.TIM_CounterMode   = TIM_CounterMode_Up;
+    TIM_TimeBaseInit(TIM1, &TIM_TimeBaseInitStructure);
+
+    TIM_Cmd(TIM1, ENABLE);
+}
+
+uint32_t timer_now(void)
+{
+    // return current 16-bit counter as 32-bit
+    return (uint32_t)TIM_GetCounter(TIM1);
+}
+
 void pwm_timer_init() {
     TIM_TimeBaseInitTypeDef TIM_InitStructure = {0};
     NVIC_InitTypeDef NVIC_InitStructure = {0};
@@ -105,42 +194,73 @@ void TIM2_IRQHandler(void) {
                 mask |= (1 << i);
             }
         }
-        TxWord = mask;
+        tx_word = mask;
     }
 }
 
 void SPI1_IRQHandler(void) __attribute__((interrupt("WCH-Interrupt-fast")));
 void SPI1_IRQHandler(void) {
     if (SPI_I2S_GetITStatus(SPI1, SPI_I2S_IT_TXE) != RESET) {
-        SPI_I2S_SendData(SPI1, TxWord);
+        SPI_I2S_SendData(SPI1, tx_word);
 
         GPIO_WriteBit(GPIOC, GPIO_Pin_4, Bit_SET);
         GPIO_WriteBit(GPIOC, GPIO_Pin_4, Bit_RESET);
     }
 }
 
-int main(void)
-{
-    NVIC_PriorityGroupConfig(NVIC_PriorityGroup_1);
-    SystemCoreClockUpdate();
-    Delay_Init();
+void rng_seed_from_hardware(void){
+    uint32_t s = 0;
+    for(int i = 0; i < 16; ++i){
+        // give ADC a little time between reads if needed
+        uint16_t a = adc_read(ADC_Channel_2);
+        uint32_t t = timer_now();
+        // mix ADC bits and timer LSBs
+        s ^= ((uint32_t)a << (i & 3)) ^ (t & 0xFFFF);
+    }
+    // avoid zero state
+    if(s == 0) s = 0xA5A5A5A5U;
+    rng_state = s;
+}
 
-    shift_spi_init();
-    pwm_timer_init();
+// xorshift32 PRNG (fast, non-crypto)
+uint32_t xorshift32(void){
+    uint32_t x = rng_state;
+    x ^= x << 13;
+    x ^= x >> 17;
+    x ^= x << 5;
+    rng_state = x ? x : 0x1234U;
+    return rng_state;
+}
 
-    int dir = 1;
-    int val = 0;
+// helper to get uniform 0..n-1
+uint32_t rand_range(uint32_t n){
+    return xorshift32() % n;
+}
 
-    while (1) {
-        for (int i = 0; i < NPIXELS; i++) {
-            framebuffer[i] = val;
+volatile u8 fade_dir = 1;
+volatile u8 fade_val = 0;
+volatile u8 set_pixels[NPIXELS] = {0};
+
+void choose_pixels() {
+    for (int i = 0; i < NPIXELS; i++) {
+        set_pixels[i] = rand_range(rand_range(10)) == 0;
+    }
+}
+
+void update_framebuffer() {
+    for (int i = 0; i < NPIXELS; i++) {
+        if (set_pixels[i] == 1) {
+            framebuffer[i] = fade_val;
+        } else {
+            framebuffer[i] = 0;
         }
+    }
 
-        val += dir;
-        if (val >= 255) { dir = -1; }
-        if (val <= 0)   { dir =  1; }
-
-        Delay_Ms(10);
+    fade_val += fade_dir;
+    if (fade_val >= 255) { fade_dir = -1; }
+    if (fade_val <= 0)   { 
+        fade_dir =  1;
+        choose_pixels();
     }
 }
 
