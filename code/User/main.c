@@ -164,7 +164,7 @@ void pwm_timer_init() {
 
     RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM2, ENABLE);
 
-    // 48 MHz clock: 48e6 / 51200 ¡Ö 937
+    // 48 MHz clock: 48e6 / 51200 ï¿½ï¿½ 937
     TIM_InitStructure.TIM_Period = 936;
     TIM_InitStructure.TIM_Prescaler = 0;
     TIM_InitStructure.TIM_ClockDivision = 0;
