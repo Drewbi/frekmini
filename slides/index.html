@@ -97,8 +97,8 @@
 					</section>
 					<section>
 						<div class="r-stack">
-							<img src="./assets/images/inspo-ikea-1.jpg" height="600" class="fragment fade-out" data-fragment-index="0" alt="IKEA Obegransad">
-							<img src="./assets/images/inspo-ikea-2.jpg" height="600" class="fragment" data-fragment-index="0" alt="IKEA Frekvens">
+							<img src="./assets/images/inspo-ikea-1.jpg" height="500" class="fragment fade-out" data-fragment-index="0" alt="IKEA Obegransad">
+							<img src="./assets/images/inspo-ikea-2.jpg" height="500" class="fragment" data-fragment-index="0" alt="IKEA Frekvens">
 						</div>
 						<a href="https://www.ikea.com/">IKEA</a>
 						<aside class="notes" data-markdown>
@@ -122,12 +122,12 @@
 					<section>
 						<div class="r-stack">
 							<div class="fragment fade-out" data-fragment-index="0">
-								<img src="./assets/images/galaxy-1.png" height="600" alt="Realistic representation of a fullstack developer">
-								Fullstack Developer
+								<img src="./assets/images/galaxy-1.png" height="500" alt="Realistic representation of a fullstack developer">
+								<div>Fullstack Developer</div>
 							</div>
 							<div class="fragment" data-fragment-index="0">
-								<img src="./assets/images/galaxy-2.jpg" height="600" alt="IKEA Frekvens">
-								<u><em>Super</em></u> Fullstack Product Developer
+								<img src="./assets/images/galaxy-2.jpg" height="500" alt="IKEA Frekvens">
+								<div>Super Fullstack Product Developer</div>
 							</div>
 						</div>
 						<aside class="notes" data-markdown>
@@ -139,6 +139,166 @@
 						Let's begin
 					</section>
 				</section>
+
+
+				<!-- Electricity = Magic -->
+				<section>Electricity = magic</section>
+
+
+				<!-- Electrical Components -->
+				<section>
+					<section>
+						Basic building block
+						<aside class="notes" data-markdown>
+							- Basic building blocks of any circuit are components, you've heard of resistors, capcitors and transistors
+							- Also will be building using Integrated Circuits (ICs)
+							- - In software you *could* write all the functionality from scratch, but more complex and more likely to get something wrong
+							- Same thing in electronics. Many Integrated Circuits (ICs) exist that perform complex or common tasks in a neat package.
+							- charging a battery cell, converting from one protocol to another or complex sensors.
+							- Microcontroller = IC = mini computer
+						</aside>
+					</section>
+
+					<section>
+						What we'll need
+						<aside class="notes" data-markdown>
+							- Making a LED matrix means we need LEDs, a LED driver and a microcontroller
+							- Power input and probably some passive components
+							- Resistors can reduce the voltage to a component or provide a connection to power or ground resulting in a consistent input to a component.
+							- Capacitors absorb spikes in voltage and provide a easy supply of current when needed by a component
+						</aside>
+					</section>
+
+					<section>
+						Shopping for components
+						<aside class="notes" data-markdown>
+							- So many suppliers and specifications and parameters
+							- Figure out your main requirements, then sort by cost/availability
+							- It’s actually quite fun once you get into it
+						</aside>
+					</section>
+
+					<section>
+						<div class="r-stack">
+							<img src="./assets/images/schematic-simple.png" height="500" class="fragment fade-out" data-fragment-index="0" alt="Simple diagram of the project">
+							<img src="./assets/images/aws-diagram.png" height="700" class="fragment current-visible" data-fragment-index="0" alt="Project diagram in AWS">
+							<img src="./assets/images/schematic-raw.png" height="500" class="fragment" data-fragment-index="1" alt="Schematic of the project">
+						</div>
+						<aside class="notes" data-markdown>
+							- 3 main parts, USB-C connector, LED driver and microcontroller (and LEDs)
+							- If you're into AWS you might find this one easier
+							- Needed to get familar with KiCad through youtube videos. Helped with schematic standards
+						</aside>
+					</section>
+				</section>
+
+				<!-- PCB Design -->
+				<section>
+					<section>
+						How to connect
+					</section>
+					<section>
+						PCBs are the way
+					</section>
+					<section>
+						<div class="r-stack">
+							<img src="./assets/images/bare-pcb.jpg" height="500" class="fragment fade-out" data-fragment-index="0" alt="unpopulated PCB">
+							<img src="./assets/images/populated-pcb.jpg" height="500" class="fragment" data-fragment-index="0" alt="populated PCB">
+						</div>
+						<aside class="notes" data-markdown>
+							- Components are soldered to pads on the PCB and traces connect between pads
+						</aside>
+					</section>
+					<section>
+						<div class="r-stack">
+							<img src="./assets/images/pcb-stack-1.png" height="500" class="fragment fade-out" data-fragment-index="0" alt="PCB Stack Diagram">
+							<img src="./assets/images/pcb-stack-2.png" height="500" class="fragment current-visible" data-fragment-index="0" alt="PCB stack diagram with VIAs">
+							<img src="./assets/images/pcb-stackup.jpg" height="500" class="fragment" data-fragment-index="1" alt="In depth diagram of stack">
+						</div>
+						<aside class="notes" data-markdown>
+							- PCBs can have multiple layers allowing you to have double sided boards or boards with internal layers for more routing, or power and ground connection
+							- To connect different layers, holes are drilled through the board and filled with copper.		
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/pcb-process-1.gif" height="500" alt="PCB design process">
+						<aside class="notes" data-markdown>
+							- Choose some board shape/dimensions	
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/pcb-process-2.gif" height="500" alt="PCB design process">
+						<aside class="notes" data-markdown>
+							- Each component on the schematic will have a “footprint” which defines the copper pad markings it needs to be placed on the board.
+							- Place your components but they may need to be rotated or moved depending on how you want to connect them
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/pcb-process-3.gif" height="500" alt="PCB design process">
+						<aside class="notes" data-markdown>
+							- Can place components on either side of the board
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/pcb-process-4.gif" height="500" alt="PCB design process">
+						<aside class="notes" data-markdown>
+							- Lots of tools to help you position things
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/pcb-process-7.gif" height="500" alt="PCB design process">
+						<aside class="notes" data-markdown>
+							- To connect components on different layers use vias
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/pcb-process-9.gif" height="500" alt="PCB design process">
+						<aside class="notes" data-markdown>
+							- To provide components with ground and power you can tap into the relevant plane with a via
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/pcb-process-11.gif" height="500" alt="PCB design process">
+						<aside class="notes" data-markdown>
+							- Final board design
+							- Run automated checks, not comprehensive but pretty good for basic mistakes. Definitely not as good as type checking and unit tests
+						</aside>
+					</section>
+					<section>
+						<div class="r-hstack">
+							<img src="./assets/images/pcb-v-1-front.png" alt="Prototype PCB 1 front">
+							<img src="./assets/images/pcb-v-1-back.png" alt="Prototype PCB 1 back">
+						</div>
+						<aside class="notes" data-markdown>
+							- V1 went for symmetry, didn't play nicely with the USBC components
+							- Missing capacitor for the LED driver
+							- Doesn't utilise most space
+							- Could have made it work
+						</aside>
+					</section>
+					<section>
+						<div class="r-hstack">
+							<img src="./assets/images/pcb-v-2-front.png" alt="Prototype PCB 2 front">
+							<img src="./assets/images/pcb-v-2-back.png" alt="Prototype PCB 2 back">
+						</div>
+						<aside class="notes" data-markdown>
+							- V2 went for vibes, still coulnd't fit the USBC resistors on the same side
+						</aside>
+					</section>
+					<section>
+						<div class="r-hstack">
+							<img src="./assets/images/pcb-front-raw.png" alt="Prototype PCB 3 front">
+							<img src="./assets/images/pcb-back-raw.png" alt="Prototype PCB 3 back">
+						</div>
+						<aside class="notes" data-markdown>
+							- V3 made mistakes with LED footprint and connections to ground instead of power
+							- V4 worked perfectly
+						</aside>
+					</section>
+					<section>
+						
+					</section>
+				</section>
 			</div>
 		</div>
 
@@ -146,6 +306,7 @@
 		<script src="plugin/notes/notes.js"></script>
 		<script src="plugin/markdown/markdown.js"></script>
 		<script src="plugin/highlight/highlight.js"></script>
+		<script src="plugin/zoom/zoom.js"></script>
 		<script>
 			// More info about initialization & config:
 			// - https://revealjs.com/initialization/
@@ -159,7 +320,7 @@
 				hideCursorTime: 2000,
 
 				// Learn about plugins: https://revealjs.com/plugins/
-				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes ]
+				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]
 			});
 		</script>
 	</body>
