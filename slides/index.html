@@ -20,6 +20,13 @@
 				<section>
 					<section>
 						<h1><em><u>Super</u></em><br/> Fullstack <h2>Product Development</h2>
+						<aside class="notes" data-markdown>
+							- Great to be here
+							- Hope everyone read the description or this title could be misleading
+							- This ones going to be mostly about hardware
+							- To any disappointed product owners in the audience, i'm sorry
+							- moving on
+						</aside>
 					</section>
 
 
@@ -27,8 +34,9 @@
 					<section>
 						About me
 						<aside class="notes" data-markdown>
+							- I'm Drew
 							- Software Dev @ Bankwest
-							- Consider myself a full stack web developer but mostly stick to frontend
+							- full stack developer but specialise in frontend and design system stuff
 						</aside>
 					</section>
 					<section>
@@ -155,12 +163,18 @@
 						<small>- Drew Alexander 2025</small>
 					</section>
 					<section>
-						*image of wizards creating runes*
+						<div class="r-stack">
+							<img src="./assets/images/rune-1.png" class="no-border" height="400" alt="Wizard crafting a rune">
+						</div>
+						<aside class="notes" data-markdown>
+							- What would learning magic look like
+							- an invisible force that can be channelled by tiny runes??
+						</aside>
 					</section>
 					<section>
 						<div class="r-hstack">
-							<img src="./assets/images/inspo-lukashenkel-4.png" alt="">
-							<img src="./assets/images/magical-electronics.jpg" alt="">
+							<img src="./assets/images/inspo-lukashenkel-4.png" alt="Visualisation into a multilayered PCB">
+							<img src="./assets/images/magical-electronics.jpg" alt="Visualising electromagnetic fields">
 						</div>
 						<aside class="notes" data-markdown>
 							- The fact that this stuff exists is mind blowing
@@ -171,11 +185,11 @@
 						Skill: Electronics
 						<aside class="notes" data-markdown>
 							- To tap into this world of circuits and components you’ll need to understand the interactions and relationships between voltage, current and resistance.
-							- There are lots of analogies to existing physical phenomonon (water, air, chains/pulleys) but they’re never perfect.
+							- There are lots of analogies to existing physical phenomena (water, air, chains/pulleys) but they’re never perfect.
 						</aside>
 					</section>
 					<section>
-						*resources for exploring electricity*
+						<video data-autoplay src="./assets/images/tome-1.mov" height="600"></video>
 						<aside class="notes" data-markdown>
 							- Giant tome was recommended to me (Practical Electronics for Inventors). Good for deep diving into particular concepts or components.
 							- Youtube videos
@@ -187,9 +201,9 @@
 				<!-- Electrical Components -->
 				<section>
 					<section>
-						*Basic building blocks*
+						<img src="./assets/images/components-1.png" class="no-border" height="500" alt="">
 						<aside class="notes" data-markdown>
-							- Basic building blocks of any circuit are components, you've heard of resistors, capcitors and transistors
+							- Basic building blocks of any circuit are components, you've heard of resistors, capacitors and transistors
 							- Also will be building using Integrated Circuits (ICs)
 							- - In software you *could* write all the functionality from scratch, but more complex and more likely to get something wrong
 							- Same thing in electronics. Many Integrated Circuits (ICs) exist that perform complex or common tasks in a neat package.
@@ -199,7 +213,7 @@
 					</section>
 
 					<section>
-						*What we'll need*
+						<img src="./assets/images/requirements-1.png" height="500" class="no-border" alt="online shopping for components">
 						<aside class="notes" data-markdown>
 							- Making a LED matrix means we need LEDs, a LED driver and a microcontroller
 							- Power input and probably some passive components
@@ -209,7 +223,7 @@
 					</section>
 
 					<section>
-						<img src="./assets/images/shopping-1.gif" alt="online shopping for components">
+						<img src="./assets/images/shopping-1.gif" height="600" alt="online shopping for components">
 						<aside class="notes" data-markdown>
 							- So many suppliers and specifications and parameters
 							- Figure out your main requirements, then sort by cost/availability
@@ -219,14 +233,15 @@
 
 					<section>
 						<div class="r-stack">
-							<img src="./assets/images/schematic-simple.png" height="500" class="fragment fade-out" data-fragment-index="0" alt="Simple diagram of the project">
+							<img src="./assets/images/schematic-simple.png" height="500" class="fragment fade-out no-border" data-fragment-index="0" alt="Simple diagram of the project">
 							<img src="./assets/images/aws-diagram.png" height="700" class="fragment current-visible" data-fragment-index="0" alt="Project diagram in AWS">
 							<img src="./assets/images/schematic-raw.png" height="500" class="fragment" data-fragment-index="1" alt="Schematic of the project">
 						</div>
 						<aside class="notes" data-markdown>
-							- 3 main parts, USB-C connector, LED driver and microcontroller (and LEDs)
+							- Picked my parts: 10c microcontroller, fairly expensive usb c and led driver, standard LEDs
+							- This is how they work together
 							- If you're into AWS you might find this one easier
-							- Needed to get familar with KiCad through youtube videos. Helped with schematic standards
+							- Needed to get familiar with KiCad through youtube videos. Helped with schematic standards
 						</aside>
 					</section>
 				</section>
@@ -234,7 +249,7 @@
 				<!-- PCB Design -->
 				<section>
 					<section>
-						*How to connect*
+						<img src="./assets/images/arduino-1.jpg" height="400" alt="Messy arduino setup">
 						<aside class="notes" data-markdown>
 							- Could use modules or breakout boards
 							- Would require no soldering or figuring out supporting components
@@ -344,18 +359,43 @@
 						</aside>
 					</section>
 					<section>
-						*DIY vs Getting them made in a factory*
+						<img src="./assets/images/manufacturer-1.jpg" alt="Factory making PCBs">
 						<aside class="notes" data-markdown>
 							- Not producing the board by hand, will be leaving that part to the professionals
+							- Want to utilise multi-layer designs
 							- low volume orders for boards and components are extremely cheap and high quality
 							- Quick turn around
 						</aside>
 					</section>
 					<section>
-						*price breakdown*
+						<img src="./assets/images/bom-1.png" class="no-border" height="600" alt="bill of materials">
+						<aside class="notes" data-markdown>
+							- Microcontroller was supposed to be 10c but I bought it from aliexpress
+						</aside>
 					</section>
 					<section>
-						*features of cutting edge boards*
+						<div class="r-stack">
+							<img src="./assets/images/shipping-1.png" class="fragment fade-out no-border" data-fragment-index="0" height="600" alt="bill of materials">
+							<img src="./assets/images/shipping-2.png" class="fragment current-visible no-border" data-fragment-index="0" height="600" alt="bill of materials">
+						</div>
+						<aside class="notes" data-markdown>
+							- $77 dollars shipping total
+						</aside>
+					</section>
+					<section>
+						<h1>$9.582</h1>
+						<small>for one board not including shipping</small>
+						<aside class="notes" data-markdown>
+							- $6 for repeat builds
+							- WHICH IS SUPER CHEAP
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/iphone-1.gif" alt="Internals of iphone-17 motherboard">
+						<aside class="notes" data-markdown>
+							- Iphone 17 much less cheap PCB design
+							- Automated assembly
+						</aside>
 					</section>
 				</section>
 
@@ -363,7 +403,7 @@
 				<!-- Assembly -->
 				 <section>
 					<section>
-						*Picture of touching components = touching grass*
+						<img src="./assets/images/stock-touchgrass.png" alt="Touch more grass">
 						<aside class="notes" data-markdown>
 							- Could get things assembled for me, but I wanted a hobby that wasn’t sitting at a computer, I can’t just remove the only physical activity involved.
 							- Much more expensive.
@@ -485,7 +525,7 @@
 					<section>
 						Time to double check EVERYTHING
 						<aside class="notes" data-markdown>
-							- No observibility into the system = immediate dispair
+							- No observibility into the system = immediate despair
 							- Need tools
 						</aside>
 					</section>
@@ -536,7 +576,7 @@
 						</aside>
 					</section>
 					<section>
-						*3D printing timelapse*
+						<img src="./assets/images/printing-2.gif" height="500" alt="3D printing">
 						<aside class="notes" data-markdown>
 							- Bought a 3D printer a while ago and has opened up the door for experimenting with design
 							- To 3D print anything that isn’t an existing design we will need to learn CAD!
@@ -550,13 +590,46 @@
 						</aside>
 					</section>
 					<section>
-						*show different parts in fusion*
+						<img src="./assets/images/fusion-1.gif" height="500" alt="Fusion sketch">
+						<aside class="notes" data-markdown>
+							- Start in 2D with a sketch
+						</aside>
 					</section>
 					<section>
-						*gif of assembly*
+						<img src="./assets/images/fusion-2.gif" height="500" alt="Fusion body">
+						<aside class="notes" data-markdown>
+							- Expand from that sketch into the 3rd dimension
+						</aside>
 					</section>
 					<section>
-						*glamour shots*
+						<img src="./assets/images/fusion-3.gif" height="500" alt="Fusion adding features">
+						<aside class="notes" data-markdown>
+							- Cut parts of the 3D shape using the 2D sketch
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/fusion-4.gif" height="500" alt="Fusion adding features">
+						<aside class="notes" data-markdown>
+							- Add internal features using same sketch
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/assembly-9.gif" height="500" alt="Putting the pieces together">
+						<aside class="notes" data-markdown>
+							- Press fit for now
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/final-1.gif" height="500" alt="Final demo of cube">
+						<aside class="notes" data-markdown>
+							- Final cube
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/final-2.gif" height="500" alt="Final demo of cube">
+						<aside class="notes" data-markdown>
+							- Less blue IRL, doesn't flicker
+						</aside>
 					</section>
 				</section>
 
@@ -564,7 +637,7 @@
 				<!-- Conclusion -->
 				<section>
 					<section>
-						*time and money investment*
+						<img src="./assets/images/time-and-money.png" class="no-border" height="500" alt="Final demo of cube">
 						<aside class="notes" data-markdown>
 							- Fairly time consuming and still basically designing things on the computer
 							- Software as a hobbyist is pretty much free
@@ -573,13 +646,20 @@
 						</aside>
 					</section>
 					<section>
-						*showcase of different projects to inspire*
+						<div class="r-hstack">
+							<img src="./assets/images/inpso-scottyujan-2.gif" class="no-border" height="500" alt="Phone dock by Overwork and Scott Yu-Jan">
+							<img src="./assets/images/inspo-kimminhyeok-1.png" class="no-border" height="500" alt="Credit Kim Min Hyeok">
+						</div>
 						<aside class="notes" data-markdown>
 							- Best way to learn = with project
 						</aside>
 					</section>
 					<section>
-						*list of enjoyable parts*
+						Fun Parts:
+							<div>
+								<small>- Online shopping - Receiving packages every couple of days - Routing traces - Watching the 3D printer work - Making things - Understanding things - Being a wizard - Getting to push cool buttons on the oscilloscope - Burning yourself with the soldering iron - Inhaling potentially dangerous fumes - Touching grass - Seeing small things under the microscope - Feeling of accomplishment and self-actualization - AliExpress - Feeling like you're not spending money because each component is only like a dollar - Seeing your code run in the real world finally - Learning how microcontrollers work finally - realising how little you know about all of these different domains - Building drones - Having friendly chats with the PCB quality assurance technician in china - Building useful tech - Building not useful tech</small>
+								<small>cont...</small>
+							</div>
 						<aside class="notes" data-markdown>
 							- Online shopping
 							- Receiving packages every couple of days
@@ -590,20 +670,20 @@
 						</aside>
 					</section>
 					<section>
-						*Another glamour shot*
+						<img src="./assets/images/final-3.jpg" height="500" alt="Final picture of cube">
 						<aside class="notes" data-markdown>
 							- I really like that it is a thing that exists and I know how to make
 						</aside>
 					</section>
 					<section>
-						*QR code and resources*
+						<img src="./assets/images/frekmini-qr.png" class="no-border" height="500" alt="QR Code for github repo">
 						<aside class="notes" data-markdown>
 							- If you’re interested in trying some of this stuff - resources
 							- Or if you want to take a closer look at the cube or just have a chat come find me after
 						</aside>
 					</section>
 					<section>
-						*Thank you*
+						<h1>Thank You</h1>
 						<aside class="notes" data-markdown>
 							- Thank you for coming along for the journey
 						</aside>
