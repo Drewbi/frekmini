@@ -75,6 +75,8 @@ $heading4Size: 1.0em;
     gap: 15px;
 }
 
-img:not(.no-border) {
-    border: solid 10px white;
+img, video {
+    &:not(.no-border) {
+        border: solid 10px white;
+    }
 }

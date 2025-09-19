@@ -70,7 +70,6 @@
 							<img class="fragment fade-out" data-fragment-index="0" src="./assets/images/inspo-lukashenkel-1.png" alt="Smart watch internals">
 							<img class="fragment current-visible" data-fragment-index="0" src="./assets/images/inspo-lukashenkel-2.png" alt="SSD internals I think">
 							<img class="fragment current-visible" src="./assets/images/inspo-lukashenkel-3.png" alt="">
-							<img class="fragment current-visible" src="./assets/images/inspo-lukashenkel-4.png" alt="">
 						</div>
 						<a href="https://x.com/QVHenkel">Lukas Henkel</a>
 					</section>
@@ -142,13 +141,53 @@
 
 
 				<!-- Electricity = Magic -->
-				<section>Electricity = magic</section>
+				<section>
+					<section>
+						<blockquote cite="Arthur C. Clarke">
+							Any sufficiently advanced technology is indistinguishable from <b>magic</b>
+						</blockquote>
+						<small>- Arthur C. Clarke 1973</small>
+					</section>
+					<section>
+						<blockquote cite="Drew Alexander">
+							Electricity <b>IS</b> magic
+						</blockquote>
+						<small>- Drew Alexander 2025</small>
+					</section>
+					<section>
+						*image of wizards creating runes*
+					</section>
+					<section>
+						<div class="r-hstack">
+							<img src="./assets/images/inspo-lukashenkel-4.png" alt="">
+							<img src="./assets/images/magical-electronics.jpg" alt="">
+						</div>
+						<aside class="notes" data-markdown>
+							- The fact that this stuff exists is mind blowing
+							- And you can learn how to control it
+						</aside>
+					</section>
+					<section>
+						Skill: Electronics
+						<aside class="notes" data-markdown>
+							- To tap into this world of circuits and components you’ll need to understand the interactions and relationships between voltage, current and resistance.
+							- There are lots of analogies to existing physical phenomonon (water, air, chains/pulleys) but they’re never perfect.
+						</aside>
+					</section>
+					<section>
+						*resources for exploring electricity*
+						<aside class="notes" data-markdown>
+							- Giant tome was recommended to me (Practical Electronics for Inventors). Good for deep diving into particular concepts or components.
+							- Youtube videos
+						</aside>
+					</section>
+				</section>
 
 
 				<!-- Electrical Components -->
 				<section>
 					<section>
-						Basic building block
+						*Basic building blocks*
 						<aside class="notes" data-markdown>
 							- Basic building blocks of any circuit are components, you've heard of resistors, capcitors and transistors
 							- Also will be building using Integrated Circuits (ICs)
@@ -160,7 +199,7 @@
 					</section>
 
 					<section>
-						What we'll need
+						*What we'll need*
 						<aside class="notes" data-markdown>
 							- Making a LED matrix means we need LEDs, a LED driver and a microcontroller
 							- Power input and probably some passive components
@@ -170,7 +209,7 @@
 					</section>
 
 					<section>
-						Shopping for components
+						<img src="./assets/images/shopping-1.gif" alt="online shopping for components">
 						<aside class="notes" data-markdown>
 							- So many suppliers and specifications and parameters
 							- Figure out your main requirements, then sort by cost/availability
@@ -195,10 +234,19 @@
 				<!-- PCB Design -->
 				<section>
 					<section>
-						How to connect
+						*How to connect*
+						<aside class="notes" data-markdown>
+							- Could use modules or breakout boards
+							- Would require no soldering or figuring out supporting components
+							- To me it feels similar to a low/no code platform. Promises the features, lacks the flexibility. Projects feel cobbled together and complexity can get unmanageable fast. 
+						</aside>
 					</section>
 					<section>
-						PCBs are the way
+						Skill: PCB Design
+						<aside class="notes" data-markdown>
+							- connect components directly in a much smaller form factor and for much cheaper.
+							- It feels like the missing part of the electronics projects I was building before. And PCBs look COOL.
+						</aside>
 					</section>
 					<section>
 						<div class="r-stack">
@@ -206,6 +254,7 @@
 							<img src="./assets/images/populated-pcb.jpg" height="500" class="fragment" data-fragment-index="0" alt="populated PCB">
 						</div>
 						<aside class="notes" data-markdown>
+							- How they work:
 							- Components are soldered to pads on the PCB and traces connect between pads
 						</aside>
 					</section>
@@ -291,12 +340,273 @@
 							<img src="./assets/images/pcb-back-raw.png" alt="Prototype PCB 3 back">
 						</div>
 						<aside class="notes" data-markdown>
-							- V3 made mistakes with LED footprint and connections to ground instead of power
-							- V4 worked perfectly
+							- V3 final design (hopefully works perfectly)
 						</aside>
 					</section>
 					<section>
-						
+						*DIY vs Getting them made in a factory*
+						<aside class="notes" data-markdown>
+							- Not producing the board by hand, will be leaving that part to the professionals
+							- low volume orders for boards and components are extremely cheap and high quality
+							- Quick turn around
+						</aside>
+					</section>
+					<section>
+						*price breakdown*
+					</section>
+					<section>
+						*features of cutting edge boards*
+					</section>
+				</section>
+
+
+				<!-- Assembly -->
+				 <section>
+					<section>
+						*Picture of touching components = touching grass*
+						<aside class="notes" data-markdown>
+							- Could get things assembled for me, but I wanted a hobby that wasn’t sitting at a computer, I can’t just remove the only physical activity involved.
+							- Much more expensive.
+							- Makes you reliant on a company to build something. Debugging or repair is impossible
+						</aside>
+					</section>
+					<section>
+						Skill: Microsoldering
+						<aside class="notes" data-markdown>
+							- Requires tools
+							- Requires space
+						</aside>
+					</section>
+					<section>
+						Required:
+						<div class="r-stack">
+							<img src="./assets/images/tool-1.JPG" class="fragment fade-out" data-fragment-index="0" height="500">
+							<img src="./assets/images/tool-2.JPG" class="fragment current-visible" data-fragment-index="0" height="500">
+							<img src="./assets/images/tool-3.JPG" class="fragment" data-fragment-index="1" height="500">
+							<img src="./assets/images/tool-4.JPG" class="fragment" data-fragment-index="2" height="500">
+							<img src="./assets/images/tool-5.JPG" class="fragment" data-fragment-index="3" height="500">
+							<img src="./assets/images/tool-6.JPG" class="fragment" data-fragment-index="4" height="500">
+							<img src="./assets/images/tool-7.JPG" class="fragment" data-fragment-index="5" height="500">
+							<img src="./assets/images/tool-8.JPG" class="fragment" data-fragment-index="6" height="500">
+							<img src="./assets/images/tool-9.JPG" class="fragment" data-fragment-index="7" height="500">
+						</div>
+					</section>
+					<section>
+						<img src="./assets/images/assembly-1.gif" height="500" alt="Applying solder paste">
+						<aside class="notes" data-markdown>
+							- Use a stencil to apply solder paste to the pads
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/assembly-2-1.gif" height="500" alt="Close up positioning stencil">
+						<aside class="notes" data-markdown>
+							- Can use tape to keep stencil in place once positioned
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/assembly-2-2.gif" height="500" alt="Applying paste">
+						<aside class="notes" data-markdown>
+							- Use syringe to apply paste
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/assembly-2-3.gif" height="500" alt="Spread paste">
+						<aside class="notes" data-markdown>
+							- Using a razor blade is probably a little un-orthodox
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/assembly-3.gif" height="500" alt="Getting passive components">
+						<aside class="notes" data-markdown>
+							- Get a few incredibly small resistors
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/assembly-4.gif" height="500" alt="Placing passive component">
+						<aside class="notes" data-markdown>
+							- Place on board
+							- Doesn't have to be perfect
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/assembly-6.gif" height="500" alt="Heating board">
+						<aside class="notes" data-markdown>
+							- Heat board to high temp (150C in my case)
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/assembly-7.gif" height="500" alt="Solder melting">
+						<aside class="notes" data-markdown>
+							- Flux helps heat transfer
+							- Solder coalesces on the pad 
+						</aside>
+					</section>
+					<section>
+						<div class="r-hstack">
+							<img src="./assets/images/program-1.JPG" height="500" alt="Programming the board">
+							<img src="./assets/images/program-2.JPG" height="500" alt="Programming the board">
+						</div>
+						make rock think
+						<aside class="notes" data-markdown>
+							- Now we just need some code to flash onto the microcontroller
+						</aside>
+					</section>
+				 </section>
+
+
+				 <!-- Software -->
+				  <section>
+					<section>
+						Skill: Software
+						<aside class="notes" data-markdown>
+							- Already got that one we can move on
+						</aside>
+					</section>
+					<section>
+						Difficulty: Hard
+						<aside class="notes" data-markdown>
+							- Actually embedded programming is really hard
+							- People usually skip this bit in build logs
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/software-1.png" height="500" alt="Software diagram showing spi communication">
+						<aside class="notes" data-markdown>
+							- Uses a protocol to send 1s and 0s
+							- output from driver is just on and off, but if you send them fast enough it can dim the lights
+						</aside>
+					</section>
+					<section>
+						Moment of truth
+					</section>
+					<section>
+						<video data-autoplay src="./assets/images/first-test.MOV" height="600"></video>
+					</section>
+					<section>
+						Time to double check EVERYTHING
+						<aside class="notes" data-markdown>
+							- No observibility into the system = immediate dispair
+							- Need tools
+						</aside>
+					</section>
+					<section>
+						<img src="./assets/images/debugging-1.JPG" height="500" alt="Multimeter and oscilloscope">
+						<aside class="notes" data-markdown>
+							- Multi Meter
+							- Oscilloscope
+						</aside>
+					</section>
+					<section>
+						<div class="r-stack">
+							<div class="fragment fade-out" data-fragment-index="0">Many days later</div>
+							<img src="./assets/images/debugging-2.gif" class="fragment current-visible" data-fragment-index="0" height="600" alt="Jumperwire mess of a board">
+							<img src="./assets/images/debugging-3.gif" class="fragment current-visible" data-fragment-index="1" height="600" alt="Jumperwire mess of a board">
+						</div>
+						<aside class="notes" data-markdown>
+							- Reordered boards
+						</aside>
+					</section>
+				</section>
+				
+				
+				<!-- Materials and Design -->
+				<section>
+					<section>
+						<div class="r-stack">
+							<div class="fragment fade-out" data-fragment-index="0">Time to finish this</div>
+							<img src="./assets/images/material-2.png" class="fragment current-visible" data-fragment-index="0" height="600" alt="Original IKEA box">
+						</div>
+						<aside class="notes" data-markdown>
+							- The case is injection moulded plastic with more plastic supports inside
+						</aside>
+					</section>
+
+					<section>
+						<div class="r-stack">
+							<div class="fragment fade-out" data-fragment-index="0">
+								<img src="./assets/images/injection-mould-machine.png" height="400" alt="Injection moulding machine">
+								<small>ENGEL E-Speed 500 Thin Wall Injection Moulding Machine</small>
+							</div>
+							<img src="./assets/images/injection-mould.png" class="fragment current-visible" data-fragment-index="0" height="400" alt="Injetion mould">
+						</div>
+						<aside class="notes" data-markdown>
+							- Went and picked up a ENGEL E-Speed 500 Thin Wall Injection Moulding Machine
+							- Moulds are expensive and can’t be changed once produced
+							- Have limitations on form as they need to be released from the mould
+						</aside>
+					</section>
+					<section>
+						*3D printing timelapse*
+						<aside class="notes" data-markdown>
+							- Bought a 3D printer a while ago and has opened up the door for experimenting with design
+							- To 3D print anything that isn’t an existing design we will need to learn CAD!
+						</aside>
+					</section>
+					<section>
+						Skill: 3D Modelling
+						<aside class="notes" data-markdown>
+							- Quite challenging to work in measurements and constraints when you have a shape in your head initially (parametric vs direct modelling)
+							- Really opens up what you can build after some initial effort
+						</aside>
+					</section>
+					<section>
+						*show different parts in fusion*
+					</section>
+					<section>
+						*gif of assembly*
+					</section>
+					<section>
+						*glamour shots*
+					</section>
+				</section>
+
+
+				<!-- Conclusion -->
+				<section>
+					<section>
+						*time and money investment*
+						<aside class="notes" data-markdown>
+							- Fairly time consuming and still basically designing things on the computer
+							- Software as a hobbyist is pretty much free
+							- Upfront equipment and space requirements
+							- Still cheaper than most other hobbies
+						</aside>
+					</section>
+					<section>
+						*showcase of different projects to inspire*
+						<aside class="notes" data-markdown>
+							- Best way to learn = with project
+						</aside>
+					</section>
+					<section>
+						*list of enjoyable parts*
+						<aside class="notes" data-markdown>
+							- Online shopping
+							- Receiving packages every couple of days
+							- Routing traces
+							- Watching the 3D printer work
+							- Having something tangible (and magical) that you made
+							- Understanding how other objects in the world are created
+						</aside>
+					</section>
+					<section>
+						*Another glamour shot*
+						<aside class="notes" data-markdown>
+							- I really like that it is a thing that exists and I know how to make
+						</aside>
+					</section>
+					<section>
+						*QR code and resources*
+						<aside class="notes" data-markdown>
+							- If you’re interested in trying some of this stuff - resources
+							- Or if you want to take a closer look at the cube or just have a chat come find me after
+						</aside>
+					</section>
+					<section>
+						*Thank you*
+						<aside class="notes" data-markdown>
+							- Thank you for coming along for the journey
+						</aside>
 					</section>
 				</section>
 			</div>
@@ -318,6 +628,7 @@
 				navigationMode: 'linear',
 				transition: 'fade',
 				hideCursorTime: 2000,
+				zoomLevel: 4,
 
 				// Learn about plugins: https://revealjs.com/plugins/
 				plugins: [ RevealMarkdown, RevealHighlight, RevealNotes, RevealZoom ]

@@ -384,6 +384,6 @@ section.has-light-background, section.has-light-background h1, section.has-light
   gap: 15px;
 }
 
-img:not(.no-border) {
+img:not(.no-border), video:not(.no-border) {
   border: solid 10px white;
 }
